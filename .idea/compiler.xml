@@ -6,22 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="getway" />
-        <module name="order-client" />
-        <module name="product-client" />
-        <module name="second-server" />
-        <module name="server" />
-        <module name="user-client" />
+        <module name="book-keeping" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="configserver" target="1.8" />
-      <module name="getway" target="1.8" />
-      <module name="order-client" target="1.8" />
-      <module name="product-client" target="1.8" />
-      <module name="second-server" target="1.8" />
-      <module name="server" target="1.8" />
-      <module name="user-client" target="1.8" />
+      <module name="book-keeping" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
