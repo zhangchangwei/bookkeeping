@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.keeping.bookkeeping.mapper.AdminUserMapper">
+  <resultMap id="BaseResultMap" type="com.book.keeping.bookkeeping.entity.AdminUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="portrait" jdbcType="VARCHAR" property="portrait" />
+    <result column="is_mobile_true" jdbcType="TINYINT" property="isMobileTrue" />
+    <result column="is_email_true" jdbcType="TINYINT" property="isEmailTrue" />
+    <result column="user_type" jdbcType="TINYINT" property="userType" />
+    <result column="user_status" jdbcType="TINYINT" property="userStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
