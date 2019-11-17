@@ -31,17 +31,22 @@
         <javaClientGenerator targetPackage="com.book.keeping.bookkeeping.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!--表配置，tableName支持%，表示全部生成-->
-        <!--<table tableName="users" domainObjectName="User">-->
-            <!--&lt;!&ndash;mysql 配置&ndash;&gt;-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-        <!--</table>-->
-        <!--<table tableName="chat_msg" domainObjectName="ChatMessage">-->
-            <!--&lt;!&ndash;mysql 配置&ndash;&gt;-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-        <!--</table>-->
-        <table tableName="admin_user" domainObjectName="AdminUser">
+        <table tableName="user" domainObjectName="User">
             <!--mysql 配置-->
-            <generatedKey column="user_id" sqlStatement="Mysql" identity="true"/>
+            <!--<generatedKey column="user_id" sqlStatement="Mysql" identity="true"/>-->
+        </table>
+        <table tableName="keeping_book" domainObjectName="KeepingBook">
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="book_user_tag" domainObjectName="BookUserTag">
+            <!--mysql 配置-->
+            <generatedKey column="tag_id" sqlStatement="Mysql" identity="true"/>
+        </table>
+
+        <table tableName="book_user_account" domainObjectName="BookUserAccount">
+            <!--mysql 配置-->
+            <generatedKey column="account_id" sqlStatement="Mysql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

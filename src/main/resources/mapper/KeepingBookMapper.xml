@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.keeping.bookkeeping.mapper.KeepingBookMapper">
+    <resultMap id="BaseResultMap" type="com.book.keeping.bookkeeping.entity.KeepingBook">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="book_date" jdbcType="DATE" property="bookDate"/>
+        <result column="book_tag" jdbcType="INTEGER" property="bookTag"/>
+        <result column="book_coast" jdbcType="DECIMAL" property="bookCoast"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="account" jdbcType="BIGINT" property="account"/>
+    </resultMap>
+
+    <resultMap id="listUserMonthDayBookMap" type="com.book.keeping.bookkeeping.entity.reflect.UserMonthDayBook">
+        <result property="monthDate" column="month_date"/>
+        <result property="weekDate" column="week_date"/>
+        <result property="sumCoast" column="sum_coast"/>
+        <result property="bookDate" column="book_date"/>
+        <result property="month" column="month"/>
+        <result property="userId" column="user_id"/>
+        <collection property="keepingBooks" column="{userId=user_id, bookDate=book_date}"
+                    javaType="ArrayList"
+                    ofType="com.book.keeping.bookkeeping.entity.reflect.KeepingBookListItem" select="listUserDayBook"></collection>
+    </resultMap>
+
+    <select id="listUserMonthDayBook" resultMap="listUserMonthDayBookMap">
+    SELECT
+    #{userId} as user_id,
+    #{month} as month,
+    week_transfer(DATE_FORMAT(book_date,'%a')) AS week_date,
+    book_date,
+    DATE_FORMAT(book_date,'%e日') AS month_date,
+    SUM(book_coast)  sum_coast
+    FROM keeping_book
+    WHERE user_id = #{userId}  and DATE_FORMAT(book_date,'%Y-%m') = #{month}
+    GROUP BY  book_date
+
+  </select>
+
+    <select id="listUserDayBook" resultType="com.book.keeping.bookkeeping.entity.reflect.KeepingBookListItem">
+      SELECT
+      kb.id,
+      kb.book_tag,
+      but.tag_name,
+      but.tag_icon,
+      kb.book_coast,
+      kb.remark
+      FROM keeping_book kb LEFT JOIN book_user_tag but ON kb.book_tag = but.tag_id
+      WHERE kb.user_id = #{userId}  and kb.book_date = #{bookDate}
+    </select>
+
+</mapper>
