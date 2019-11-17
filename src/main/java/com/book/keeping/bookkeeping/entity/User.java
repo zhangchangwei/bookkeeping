@@ -1,180 +1,148 @@
 package com.book.keeping.bookkeeping.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.*;
 
-@Table(name = "users")
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-
     /**
-     * 用户名，账号，慕信号
+     * 用户ID
      */
-    private String username;
+    @Id
+    @Column(name = "user_id")
+    private String userId;
 
     /**
-     * 密码
+     * 微信用户信息ID
+     */
+    @Column(name = "open_id")
+    private String openId;
+
+    /**
+     * 用户昵称
+     */
+    @Column(name = "nick_name")
+    private String nickName;
+
+    /**
+     * 用户密码MD5
      */
     private String password;
 
     /**
-     * 我的头像，如果没有默认给一张
+     * 用户头像
      */
     @Column(name = "face_image")
     private String faceImage;
 
-    @Column(name = "face_image_big")
-    private String faceImageBig;
-
     /**
-     * 昵称
+     * 用户状态
      */
-    private String nickname;
+    private Integer status;
 
     /**
-     * 新用户注册后默认后台生成二维码，并且上传到fastdfs
-     */
-    private String qrcode;
-
-    private String cid;
-
-    /**
-     * @return id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * 获取用户名，账号，慕信号
+     * 获取用户ID
      *
-     * @return username - 用户名，账号，慕信号
+     * @return user_id - 用户ID
      */
-    public String getUsername() {
-        return username;
+    public String getUserId() {
+        return userId;
     }
 
     /**
-     * 设置用户名，账号，慕信号
+     * 设置用户ID
      *
-     * @param username 用户名，账号，慕信号
+     * @param userId 用户ID
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     /**
-     * 获取密码
+     * 获取微信用户信息ID
      *
-     * @return password - 密码
+     * @return open_id - 微信用户信息ID
+     */
+    public String getOpenId() {
+        return openId;
+    }
+
+    /**
+     * 设置微信用户信息ID
+     *
+     * @param openId 微信用户信息ID
+     */
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    /**
+     * 获取用户昵称
+     *
+     * @return nick_name - 用户昵称
+     */
+    public String getNickName() {
+        return nickName;
+    }
+
+    /**
+     * 设置用户昵称
+     *
+     * @param nickName 用户昵称
+     */
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    /**
+     * 获取用户密码MD5
+     *
+     * @return password - 用户密码MD5
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * 设置密码
+     * 设置用户密码MD5
      *
-     * @param password 密码
+     * @param password 用户密码MD5
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * 获取我的头像，如果没有默认给一张
+     * 获取用户头像
      *
-     * @return face_image - 我的头像，如果没有默认给一张
+     * @return face_image - 用户头像
      */
     public String getFaceImage() {
         return faceImage;
     }
 
     /**
-     * 设置我的头像，如果没有默认给一张
+     * 设置用户头像
      *
-     * @param faceImage 我的头像，如果没有默认给一张
+     * @param faceImage 用户头像
      */
     public void setFaceImage(String faceImage) {
         this.faceImage = faceImage;
     }
 
     /**
-     * @return face_image_big
-     */
-    public String getFaceImageBig() {
-        return faceImageBig;
-    }
-
-    /**
-     * @param faceImageBig
-     */
-    public void setFaceImageBig(String faceImageBig) {
-        this.faceImageBig = faceImageBig;
-    }
-
-    /**
-     * 获取昵称
+     * 获取用户状态
      *
-     * @return nickname - 昵称
+     * @return status - 用户状态
      */
-    public String getNickname() {
-        return nickname;
+    public Integer getStatus() {
+        return status;
     }
 
     /**
-     * 设置昵称
+     * 设置用户状态
      *
-     * @param nickname 昵称
+     * @param status 用户状态
      */
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    /**
-     * 获取新用户注册后默认后台生成二维码，并且上传到fastdfs
-     *
-     * @return qrcode - 新用户注册后默认后台生成二维码，并且上传到fastdfs
-     */
-    public String getQrcode() {
-        return qrcode;
-    }
-
-    /**
-     * 设置新用户注册后默认后台生成二维码，并且上传到fastdfs
-     *
-     * @param qrcode 新用户注册后默认后台生成二维码，并且上传到fastdfs
-     */
-    public void setQrcode(String qrcode) {
-        this.qrcode = qrcode;
-    }
-
-    /**
-     * @return cid
-     */
-    public String getCid() {
-        return cid;
-    }
-
-    /**
-     * @param cid
-     */
-    public void setCid(String cid) {
-        this.cid = cid;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
