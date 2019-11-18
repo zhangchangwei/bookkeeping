@@ -1,12 +1,7 @@
 package com.book.keeping.bookkeeping.service;
 
-import com.book.keeping.bookkeeping.entity.KeepingBook;
 import com.book.keeping.bookkeeping.entity.User;
-import com.book.keeping.bookkeeping.entity.reflect.UserMonthDayBook;
 import com.github.pagehelper.PageInfo;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
  * 功能描述
@@ -17,5 +12,13 @@ import java.util.List;
  */
 public interface UserService {
 
+    /**
+     * 功能描述:
+     * @author zhang.penghao
+     * @param page 页码
+     * @param pageSize 每页记录数
+     * @date 2019/11/18
+     * @return {@link User}
+     */
     PageInfo<User> listUser(Integer page, Integer pageSize);
 }

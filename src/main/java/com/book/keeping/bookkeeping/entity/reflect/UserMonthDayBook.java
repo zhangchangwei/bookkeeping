@@ -5,6 +5,11 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * 用户月度日期账单汇总对象
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Data
 public class UserMonthDayBook {
 

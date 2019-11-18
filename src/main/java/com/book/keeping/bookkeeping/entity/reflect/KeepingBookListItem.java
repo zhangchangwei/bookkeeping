@@ -1,10 +1,12 @@
 package com.book.keeping.bookkeeping.entity.reflect;
 
-import com.book.keeping.bookkeeping.entity.KeepingBook;
 import lombok.Data;
 
-import java.util.List;
-
+/**
+ * 账单列表
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Data
 public class KeepingBookListItem {
 

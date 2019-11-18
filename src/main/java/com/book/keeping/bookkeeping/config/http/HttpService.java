@@ -17,6 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * HttpClient接口封装
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Component
 public class HttpService {
 

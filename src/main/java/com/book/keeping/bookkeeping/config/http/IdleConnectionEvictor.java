@@ -4,6 +4,11 @@ import org.apache.http.conn.HttpClientConnectionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * HttpClient连接池
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Component
 public class IdleConnectionEvictor extends Thread {
 

@@ -2,6 +2,11 @@ package com.book.keeping.bookkeeping.entity;
 
 import javax.persistence.*;
 
+/**
+ * 用户账户表实体类
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Table(name = "book_user_account")
 public class BookUserAccount {
     /**

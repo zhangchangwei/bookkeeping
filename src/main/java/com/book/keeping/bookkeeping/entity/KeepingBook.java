@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * 账单表实体类
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Table(name = "keeping_book")
 public class KeepingBook {
     /**
