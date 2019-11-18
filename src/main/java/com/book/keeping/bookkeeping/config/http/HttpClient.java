@@ -9,6 +9,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * HttpClient配置
+ * @author zhang.penghao
+ * @date 2019/11/18
+ */
 @Configuration
 public class HttpClient {
 

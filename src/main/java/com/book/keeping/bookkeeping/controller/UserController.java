@@ -1,5 +1,7 @@
 package com.book.keeping.bookkeeping.controller;
 
+import com.book.keeping.bookkeeping.common.exception.TokenInvalidException;
+import com.book.keeping.bookkeeping.common.result.Result;
 import com.book.keeping.bookkeeping.config.http.HttpService;
 import com.book.keeping.bookkeeping.entity.KeepingBook;
 import com.book.keeping.bookkeeping.entity.User;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 功能描述
+ * 用户控制层
  *
  * @author zhang.penghao
  * @version V1.0
@@ -36,8 +38,11 @@ public class UserController {
     HttpService httpService;
 
     @GetMapping
-    public PageInfo<User> listUser(Integer page, Integer pageSize) {
-        return userService.listUser(page, pageSize);
+    public Result listUser(Integer page, Integer pageSize) {
+//        if(true){
+//            throw new TokenInvalidException();
+//        }
+        return Result.success(userService.listUser(page, pageSize));
     }
 
     @GetMapping("/wx/info")
