@@ -1,6 +1,5 @@
 package com.book.keeping.bookkeeping.app;
 
-import okhttp3.OkHttpClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
