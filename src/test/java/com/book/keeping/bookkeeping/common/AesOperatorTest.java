@@ -1,5 +1,7 @@
 package com.book.keeping.bookkeeping.common;
 
+import com.book.keeping.bookkeeping.utils.GlobalIdUtil;
+import com.book.keeping.bookkeeping.utils.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -11,9 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 public class AesOperatorTest {
 
     public static void main(String[] args) throws Exception {
-           String str =  AesOperator.getInstance().encrypt("sadasddsadasdaswqeqweqwewqewqeqweqweqweqweqweqeqweqweqw");
-           log.info(str);
-        log.info(AesOperator.getInstance().decrypt(str));
+        Long s = GlobalIdUtil.nextId();
+        String token = TokenUtil.createToken(String.valueOf(s));
+        log.info("{}", s);
+           log.info(token);
+        log.info(TokenUtil.getUserId(token));
 
     }
 }

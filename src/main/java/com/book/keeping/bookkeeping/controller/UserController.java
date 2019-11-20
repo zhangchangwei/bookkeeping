@@ -11,9 +11,7 @@ import com.github.pagehelper.PageInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,12 +38,17 @@ public class UserController {
     HttpService httpService;
 
     @GetMapping
-    public Result listUser( String userId, Integer page, Integer pageSize) {
+    public Result listUser( User user) {
 //        if(true){
 //            throw new TokenInvalidException();
 //        }
-        log.info(userId + "***************************");
-        return Result.success(userService.listUser(page, pageSize));
+        return Result.success(userService.listUser(1, 1));
+    }
+
+    @PostMapping
+    public Result insertUser(String userId,@RequestBody User user) {
+        user.setUserId(userId);
+        return Result.success(userService.listUser(1, 1));
     }
 
     @GetMapping("/wx/info")

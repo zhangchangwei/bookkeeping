@@ -1,10 +1,9 @@
-package com.book.keeping.bookkeeping.common.filter;
+package com.book.keeping.bookkeeping.config.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
@@ -14,7 +13,6 @@ import java.io.IOException;
  * @date 2018/7/11 11:38
  */
 @Component
-@WebFilter(filterName = "my2Filter" ,urlPatterns = "/*")
 @Slf4j
 public class GlobalFilter implements Filter {
 

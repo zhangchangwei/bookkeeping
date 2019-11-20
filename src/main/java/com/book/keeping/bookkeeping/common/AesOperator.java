@@ -1,5 +1,6 @@
 package com.book.keeping.bookkeeping.common;
 
+import com.book.keeping.bookkeeping.common.exception.TokenInvalidException;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
@@ -37,7 +38,7 @@ public class AesOperator {
         return aesOperator;
     }
 
-    public String encrypt(String sSrc) throws Exception {
+    public String encrypt(String sSrc) {
         String result;
         try {
             //AES加密算法需要与安全模式一起使用
@@ -52,7 +53,7 @@ public class AesOperator {
             System.arraycopy(encryptData, 0, message, 12, encryptData.length);
             result = Base64.getEncoder().encodeToString(message);
         } catch (Exception e) {
-            throw new Exception();
+            throw new TokenInvalidException();
         }
         // 此处使用BASE64做转码。
         return result;
