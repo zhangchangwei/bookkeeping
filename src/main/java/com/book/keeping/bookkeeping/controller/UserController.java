@@ -1,10 +1,13 @@
 package com.book.keeping.bookkeeping.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.book.keeping.bookkeeping.common.exception.TokenInvalidException;
 import com.book.keeping.bookkeeping.common.result.Result;
 import com.book.keeping.bookkeeping.config.http.HttpService;
 import com.book.keeping.bookkeeping.entity.KeepingBook;
 import com.book.keeping.bookkeeping.entity.User;
+import com.book.keeping.bookkeeping.entity.parameter.WeiXInPostInfo;
 import com.book.keeping.bookkeeping.entity.reflect.UserMonthDayBook;
 import com.book.keeping.bookkeeping.service.UserService;
 import com.github.pagehelper.PageInfo;
@@ -51,13 +54,16 @@ public class UserController {
         return Result.success(userService.listUser(1, 1));
     }
 
-    @GetMapping("/wx/info")
-    public String checkWinXinInfo(String jsCode) throws Exception {
+    @PostMapping("/wx/info")
+    public JSONObject checkWinXinInfo(@RequestBody WeiXInPostInfo weiXInPostInfo) throws Exception {
         String uri = "https://api.weixin.qq.com/sns/jscode2session?appid=" + APP_ID
                 + "&secret=" + SECRET_ID
                 + "&grant_type=authorization_code&js_code="
-                + jsCode;
-        return httpService.doGet(uri);
+                + weiXInPostInfo.getJsCode();
+        JSONObject result  = (JSONObject)JSON.parse(httpService.doGet(uri));
+        log.info(weiXInPostInfo.toString());
+        log.info(result.toString());
+        return result;
     }
 }
 
