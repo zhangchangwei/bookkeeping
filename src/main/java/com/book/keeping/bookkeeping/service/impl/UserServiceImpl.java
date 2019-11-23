@@ -35,4 +35,9 @@ public class UserServiceImpl implements UserService {
         return new PageInfo<>(users);
     }
 
+    @Override
+    public int insertUser(User user) {
+        return userMapper.insert(user);
+    }
+
 }

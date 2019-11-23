@@ -1,5 +1,7 @@
 package com.book.keeping.bookkeeping.config.filter;
 
+import com.book.keeping.bookkeeping.common.Constant;
+import com.book.keeping.bookkeeping.utils.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +37,10 @@ public class GlobalServletRequestWrapper extends HttpServletRequestWrapper {
     @Override
     public String[] getParameterValues(String name) {
         if ("userId".equals(name)){
-            return new String[]{super.getHeader("token")};
+            Object isCheckToken = super.getAttribute(Constant.CHECK_TOKEN_INDEX);
+            if(isCheckToken == null){
+                return new String[]{TokenUtil.getUserId(super.getHeader("token"))};
+            }
         }
         return super.getParameterValues(name);
     }

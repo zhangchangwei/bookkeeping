@@ -2,6 +2,8 @@ package com.book.keeping.bookkeeping.utils;
 
 
 import com.book.keeping.bookkeeping.common.AesOperator;
+import com.book.keeping.bookkeeping.common.Constant;
+import com.book.keeping.bookkeeping.common.exception.TokenInvalidException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -13,8 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class TokenUtil {
-    private static final String TOKEN_SLAT = "LetUsGoSky";
-    private static final String TOKEN_HEADER = "beBetter";
+
 
     /**
      * 创建token并缓存
@@ -24,8 +25,8 @@ public class TokenUtil {
      * @author zhang.penghao
      */
     public static String createToken(String userId) {
-        String tokenOrigin = String.join(TOKEN_HEADER, userId, String.valueOf(System.currentTimeMillis()));
-        return AesOperator.getInstance().encrypt(tokenOrigin + TOKEN_SLAT  + userId);
+        String tokenOrigin = String.join(Constant.TOKEN_HEADER, userId, String.valueOf(System.currentTimeMillis()));
+        return AesOperator.getInstance().encrypt(tokenOrigin + Constant.TOKEN_SLAT  + userId);
     }
 
     /**
@@ -37,7 +38,7 @@ public class TokenUtil {
      */
     public static String getUserId(String token) {
         String tokenOrigin = AesOperator.getInstance().decrypt(token);
-        return tokenOrigin.split(TOKEN_SLAT)[1];
+        return tokenOrigin.split(Constant.TOKEN_SLAT)[1];
     }
 
 }
