@@ -40,6 +40,11 @@ public class Result<T> implements Serializable {
         this.data = data;
     }
 
+    public Result(Integer code,String content ){
+        this.code = code;
+        this.msg = content;
+    }
+
     public Result(ResultEnum type,String content ,T data){
         this.code = type.getCode();
         this.msg = content;
@@ -65,5 +70,9 @@ public class Result<T> implements Serializable {
 
     public static Result error(ResultEnum type,String content){
         return new Result(type,content);
+    }
+
+    public static Result error(Integer code,String content){
+        return new Result(code,content );
     }
 }

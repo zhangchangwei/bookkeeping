@@ -21,4 +21,13 @@ public interface UserService {
      * @return {@link User}
      */
     PageInfo<User> listUser(Integer page, Integer pageSize);
+
+    /**
+     * 功能描述:
+     * @author zhang.penghao
+     * @param user {@link User}
+     * @date 2019/11/18
+     * @return int
+     */
+    int insertUser(User user);
 }

@@ -1,5 +1,7 @@
 package com.book.keeping.bookkeeping.entity;
 
+import lombok.ToString;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * @author zhang.penghao
  * @date 2019/11/18
  */
+@ToString
 public class User {
     /**
      * 用户ID
